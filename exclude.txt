@@ -1,0 +1,16 @@
+*.jpa
+*.zip
+*.rar
+*.gz
+*.tar
+*.tar.gz
+*.tar.bz2
+*.wpress
+com_akeeba/backup/*
+backupbuddy_backups/*
+wp-content/uploads/wpcf7_captcha
+wp-content/widget-cache
+wp-content/cache*
+wp-content/updraft
+wp-content/plugins/madara-core/extract/temp
+wptsc-cachedir

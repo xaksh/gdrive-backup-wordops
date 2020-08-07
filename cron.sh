@@ -3,7 +3,7 @@
 # Prepare cronjob
 
 CRON_TIME="$1"
-CRON_CMD="bash /root/gdrive-backup-cpanel/backup.sh >> /root/gdrive-backup-cpanel/backup.log 2>&1"
+CRON_CMD="bash /root/gdrive-backup-wordops/backup.sh >> /root/gdrive-backup-wordops/backup.log 2>&1"
 CRON_JOB="$CRON_TIME $CRON_CMD"
 
 # Backup Current cronjobs to file

@@ -1,29 +1,29 @@
-# cpanel-backups-upload-to-gdrive
-Automate Uploading of cPanel Created Backups to Google Drive using rclone
+# wordops-backups-upload-to-gdrive
+Automate Creation and Uploading of WordOps Backups to Google Drive using rclone
 
-1) Clone this repo in /root directory of the server with directory name gdrive-backup-cpanel using following Command
- 
- > git clone https://github.com/xaksh/gdrive-backup-cpanel -b cpanel+gdrive+jbc gdrive-backup-cpanel
- 
+1) Clone this repo in /root directory of the server with directory name gdrive-backup-wordops using following Command
+
+ > git clone https://github.com/xaksh/gdrive-backup-wordops -b wordops+gdrive gdrive-backup-wordops
+
  or you can use wget to download Zip Archive and Extract.
- 
- > wget 'https://github.com/xaksh/gdrive-backup-cpanel/archive/cpanel+gdrive+jbc.zip'
- 
- > unzip -j cpanel+gdrive+jbc.zip -d gdrive-backup-cpanel
+
+ > wget 'https://github.com/xaksh/gdrive-backup-wordops/archive/wordops+gdrive+jbc.zip'
+
+ > unzip -j wordops+gdrive+jbc.zip -d gdrive-backup-wordops
 
 2) Run setup.sh with Server Hostname, Host Node, Cron Job Time as arguments
 
- > cd gdrive-backup-cpanel
+ > cd gdrive-backup-wordops
 
  > source setup.sh "server.hostname.com" "swift" "30 5 * * *"
 
-   server.hostname.com = Server's Hostname where Backup Script will run
-   
+   server.hostname.com = Server's Hostname where Backup Script will run or Primary Domain Name
+
    swift = Host Node name
-   
+
    30 5 * * * = Backup Upload Script will run daily @5:30 AM
 
-   Example: 
+   Example:
  > source setup.sh "swift.basezap.com" "swift" "30 5 * * *"
 
 3) rclone will ask to create a new remote. Make remote for Google drive with "gdrive" as remote name without qoutes.
