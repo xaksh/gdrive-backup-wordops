@@ -11,7 +11,7 @@ TO=
 MID="$(</dev/urandom tr -dc "A-Za-z0-9" | head -c26)"
 
 #Set the PATH variable
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+export PATH=
 
 # Clean and Create fresh backup directory
 rm -rf $BACKUP_DIR/* && mkdir -p "$BACKUP_DIR/$DATE"
