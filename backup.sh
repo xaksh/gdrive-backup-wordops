@@ -14,11 +14,18 @@ echo $DATE
 start=$SECONDS
 ls -1 /var/www/ -Ihtml -I22222 | while read user; do
 cd /var/www/$user
-wp db export --allow-root --path=/var/www/$user/htdocs/
+WPDBNAME=`cat wp-config.php | grep DB_NAME | cut -d \' -f 4`
+WPDBUSER=`cat wp-config.php | grep DB_USER | cut -d \' -f 4`
+WPDBPASS=`cat wp-config.php | grep DB_PASSWORD | cut -d \' -f 4`
+mysqldump -u"$WPDBUSER" -p"$WPDBPASS" "$WPDBNAME" > "$WPDBNAME".sql
 wait
 tar -cf $BACKUP_DIR/$DATE/$user.tar -X /root/gdrive-backup-wordops/exclude.txt .
 wait
-rm -f /var/www/$user/*.sql
+rm -f /var/www/$user/"$WPDBNAME".sql
+wait
+tar -cf $BACKUP_DIR/$DATE/$user.tar -X /root/gdrive-backup-wordops/exclude.txt .
+wait
+rm -f /var/www/$user/'$WPDBNAME'.sql
 wait
 rclone copy $BACKUP_DIR/$DATE gdrive:basezap"$NODE"nodebackups/$SERVER_HOSTNAME/$DATE
 wait
